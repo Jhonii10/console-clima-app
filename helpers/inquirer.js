@@ -58,7 +58,7 @@ const leerInput = async (message)=>{
     const pregunta = [
         {
             type: 'input',
-            name: 'desc',
+            name: 'cuidad',
             message: message,
             validate: (value) => {
                 if (value.length === 0) {

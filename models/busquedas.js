@@ -1,3 +1,6 @@
+const axios = require("axios");
+require('dotenv').config()
+
 class Busquedas {
 
     historial = []
@@ -7,9 +10,19 @@ class Busquedas {
     }
 
     async cuidad(lugar = ''){
-        console.log(lugar);
         
-        return [];
+            const {cuidad} = lugar
+
+            const apiKey = process.env.MAPS_KEY;
+
+            const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cuidad}`;
+
+
+            const { data } = await axios.get(url);
+
+            
+            return data;
+        
     } 
 }
 
