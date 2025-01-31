@@ -11,18 +11,16 @@ const main = async () => {
         switch (opt) {
             case 1:
                 const cuidad = await leerInput('Cuidad:');
-                busquedas.cuidad(cuidad)
+                const {location, current} =   await busquedas.cuidad(cuidad);
 
                 console.log('\nInformacion de la cuidad \n');
-                console.log('Cuidad:',   );
-                console.log('Latitud:',  );
-                console.log('Longitud:', );
-                console.log('Temperatura:',);
-                console.log('Minima:',);
-                console.log('Maxima:',);
+                console.log('Cuidad:', location.name);
+                console.log('Departamento:', location.region);
+                console.log('Pais:', location.country); 
+                console.log('Latitud:', location.lat );
+                console.log('Longitud:', location.lon );
+                console.log('Temperatura:',current.temp_c);
 
-                
-                
                 break;
             case 2:
                 busquedas.historial
