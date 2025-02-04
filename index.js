@@ -13,6 +13,8 @@ const main = async () => {
                 const cuidad = await leerInput('Cuidad:');
                 const {location, current} =   await busquedas.cuidad(cuidad);
 
+                busquedas.agregarHistorial(location.name)
+
                 console.log('\nInformacion de la cuidad \n');
                 console.log('Cuidad:', location.name);
                 console.log('Departamento:', location.region);
@@ -23,7 +25,10 @@ const main = async () => {
 
                 break;
             case 2:
-                busquedas.historial
+                busquedas.historial.forEach((lugar,i)=> {
+                    const idx =`${i+1}`.green;
+                    console.log(`${idx}:`, lugar);
+                })
                 break;
         
         }
